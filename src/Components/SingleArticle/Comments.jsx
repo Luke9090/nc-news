@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import * as api from '../../utils/api';
 import Loading from '../Loading';
+import PostComment from './PostComment';
 import CommentCard from './CommentCard';
 
 class Comments extends PureComponent {
@@ -16,6 +17,7 @@ class Comments extends PureComponent {
   }
 
   render() {
+    const article_id = this.props.article_id;
     const { isLoading, comments } = this.state;
     if (isLoading) return <Loading />;
     return (
@@ -24,6 +26,7 @@ class Comments extends PureComponent {
         {comments.map(comment => {
           return <CommentCard comment={comment} key={comment.comment_id} />;
         })}
+        <PostComment article_id={article_id} />
       </section>
     );
   }
