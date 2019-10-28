@@ -1,18 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { PureComponent } from 'react';
 import './App.css';
 import Title from './Components/Title';
 import Menu from './Components/Menu';
 import Main from './Components/Main';
+import Login from './Components/Login';
 
-function App() {
-  return (
-    <>
-      <Title />
-      <Menu />
-      <Main />
-    </>
-  );
+class App extends PureComponent {
+  state = {
+    loggedInAs: 'JessJelly'
+  };
+
+  render() {
+    return (
+      <>
+        <Title />
+        <Login loggedInAs={this.state.loggedInAs} />
+        <Menu />
+        <Main />
+      </>
+    );
+  }
 }
 
 export default App;

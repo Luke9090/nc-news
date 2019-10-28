@@ -20,6 +20,10 @@ header {
   grid-area: header;
 }
 
+#login {
+  grid-area: login;
+}
+
 nav {
   grid-area: nav;
   display: flex;
@@ -50,4 +54,9 @@ a:hover {
 
 h1:hover {
   text-decoration: none;
+}
+
+#login > * {
+  margin: 0;
+  padding: 0;
 }
