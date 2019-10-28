@@ -16,7 +16,7 @@ class App extends PureComponent {
         <Title />
         <Login loggedInAs={this.state.loggedInAs} />
         <Menu />
-        <Main />
+        <Main loggedInAs={this.state.loggedInAs} />
       </>
     );
   }

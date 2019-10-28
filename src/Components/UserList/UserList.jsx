@@ -4,7 +4,7 @@ class UserList extends PureComponent {
   state = {};
 
   render() {
-    return <p>User list goes here</p>;
+    return <p>User list goes here - not yet implemented on backend</p>;
   }
 }
 

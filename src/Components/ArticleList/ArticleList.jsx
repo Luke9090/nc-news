@@ -6,11 +6,22 @@ import Loading from '../Loading';
 class ArticleList extends PureComponent {
   state = {
     articles: [],
-    isLoading: true
+    isLoading: true,
+    query: {}
   };
 
   componentDidMount() {
-    api.fetchArticles().then(articles => this.setState({ articles, isLoading: false }));
+    this.setState({ query: { topic: this.props.topic, author: this.props.user } }, () => {
+      api.fetchArticles(this.state.query).then(articles => this.setState({ articles, isLoading: false }));
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.topic !== this.props.topic || prevProps.user !== this.props.user) {
+      this.setState({ query: { topic: this.props.topic, author: this.props.user } }, () => {
+        api.fetchArticles(this.state.query).then(articles => this.setState({ articles, isLoading: false }));
+      });
+    }
   }
 
   render() {

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from '@reach/router';
 import * as data from '../../utils/data';
 import './articleCard.css';
+import commentIcon from '../../imgs/commentIcon.svg';
 
 function ArticleCard({ article }) {
   const { author, title, article_id, topic, created_at, votes, comment_count } = article;
@@ -20,7 +21,10 @@ function ArticleCard({ article }) {
         <Link to={`/t/${topic}`}>/t/{topic}</Link>
       </p>
       <p className="articleTime">{data.formatTime(created_at)}</p>
-      <p className="articleComments">Comments: {comment_count}</p>
+      <p className="articleComments">
+        <img src={commentIcon} alt="Comment Icon" className="commentIcon" />
+        {comment_count} comments
+      </p>
     </section>
   );
 }

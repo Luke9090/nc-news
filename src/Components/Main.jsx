@@ -4,15 +4,15 @@ import UserList from './UserList/UserList';
 import TopicList from './TopicList/TopicList';
 import ArticleList from './ArticleList/ArticleList';
 
-function Main() {
+function Main({ loggedInAs }) {
   return (
     <main>
       <Router>
         <ArticleList path="/" />
         <ArticleList path="/t/:topic" />
+        <ArticleList path="/u/:user" />
         <TopicList path="/t" />
         <UserList path="/u" />
-        <ArticleList path="/u/:user" />
       </Router>
     </main>
   );

@@ -9,6 +9,11 @@
     'downvote comments . .';
 }
 
+.articleCard > * {
+  display: flex;
+  align-items: center;
+}
+
 .upvote {
   grid-area: upvote;
 }
@@ -25,6 +30,12 @@
   grid-area: title;
 }
 
+.articleTitle > h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .articleAuthor {
   grid-area: author;
 }
@@ -39,4 +50,8 @@
 
 .articleComments {
   grid-area: comments;
+}
+
+.commentIcon {
+  height: 1.5em;
 }
