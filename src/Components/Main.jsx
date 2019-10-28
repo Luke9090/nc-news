@@ -3,6 +3,7 @@ import { Router } from '@reach/router';
 import UserList from './UserList/UserList';
 import TopicList from './TopicList/TopicList';
 import ArticleList from './ArticleList/ArticleList';
+import SingleArticle from './SingleArticle/SingleArticle';
 
 function Main({ loggedInAs }) {
   return (
@@ -13,6 +14,7 @@ function Main({ loggedInAs }) {
         <ArticleList path="/u/:user" />
         <TopicList path="/t" />
         <UserList path="/u" />
+        <SingleArticle path="/a/:article_id" />
       </Router>
     </main>
   );

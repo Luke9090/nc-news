@@ -15,3 +15,17 @@ export const fetchArticles = query => {
     .then(({ data }) => data.articles)
     .catch(console.log);
 };
+
+export const fetchSingleArticle = article_id => {
+  return request
+    .get(`/articles/${article_id}`)
+    .then(({ data }) => data.article)
+    .catch(console.log);
+};
+
+export const fetchArticleComments = article_id => {
+  return request
+    .get(`/articles/${article_id}/comments`)
+    .then(({ data }) => data.comments)
+    .catch(console.log);
+};
