@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import * as data from '../../utils/data';
+import './articleCard.css';
 
 function ArticleCard({ article }) {
   const { author, title, article_id, topic, created_at, votes, comment_count } = article;
   return (
     <section className="articleCard">
-      <span className="articleVotes">{votes}</span>
-      <Link to={`/a/${article_id}`}>
-        <h3 className="articleTitle">{title}</h3>
+      <p className="upvote">⬆</p>
+      <p className="articleVotes">{votes}</p>
+      <p className="downvote">⬇</p>
+      <Link to={`/a/${article_id}`} className="articleTitle">
+        <h3>{title}</h3>
       </Link>
       <p className="articleAuthor">
         <Link to={`/u/${author}`}>/u/{author}</Link>

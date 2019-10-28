@@ -1,0 +1,42 @@
+.articleCard {
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: 30px 1fr 1fr 1fr;
+  grid-template-rows: 2em 2em 2em;
+  grid-template-areas:
+    'upvote title title title'
+    'votes author topic time'
+    'downvote comments . .';
+}
+
+.upvote {
+  grid-area: upvote;
+}
+
+.downvote {
+  grid-area: downvote;
+}
+
+.articleVotes {
+  grid-area: votes;
+}
+
+.articleTitle {
+  grid-area: title;
+}
+
+.articleAuthor {
+  grid-area: author;
+}
+
+.articleTopic {
+  grid-area: topic;
+}
+
+.articleTime {
+  grid-area: time;
+}
+
+.articleComments {
+  grid-area: comments;
+}
