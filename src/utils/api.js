@@ -33,3 +33,11 @@ export const fetchArticleComments = article_id => {
 export const postComment = (article_id, body, username) => {
   return request.post(`/articles/${article_id}/comments`, { username, body });
 };
+
+export const deleteComment = comment_id => {
+  return request.delete(`/comments/${comment_id}`);
+};
+
+export const deleteArticle = article_id => {
+  return request.delete(`/articles/${article_id}`);
+};
