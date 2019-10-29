@@ -3,40 +3,52 @@ import Loading from '../Loading';
 import * as api from '../../utils/api';
 import { Link } from '@reach/router';
 import * as data from '../../utils/data';
+import Comments from './Comments';
+import ErrorDisplay from '../ErrorDisplay';
 
 class Article extends PureComponent {
   state = {
     article: {},
-    isLoading: true
+    isLoading: true,
+    error: null
   };
 
   componentDidMount() {
-    api.fetchSingleArticle(this.props.article_id).then(article => {
-      this.setState({ article, isLoading: false });
-    });
+    api
+      .fetchSingleArticle(this.props.article_id)
+      .then(article => {
+        this.setState({ article, isLoading: false });
+      })
+      .catch(({ status, msg }) => {
+        this.setState({ error: { status, msg }, isLoading: false });
+      });
   }
 
   render() {
-    const { loggedInAs } = this.props;
-    const { article, isLoading } = this.state;
+    const { loggedInAs, article_id } = this.props;
+    const { article, isLoading, error } = this.state;
     if (isLoading) return <Loading />;
+    if (error) return <ErrorDisplay status={error.status} msg={error.msg} />;
     const { title, body, votes, topic, author, created_at } = article;
     const userIsAuthor = loggedInAs === author;
     return (
-      <article className="article">
-        <p className="upvote articleUpvote">⬆</p>
-        <p className="votes articleVotes">{votes}</p>
-        <p className="downvote articleDownvote">⬇</p>
-        <h2 className="articleTitle">{title}</h2>
-        <p className={`articleAuthor${userIsAuthor ? ' userIsAuthor' : ''}`}>
-          <Link to={`/u/${author}`}>/u/{author}</Link>
-        </p>
-        <p className="articleTopic">
-          <Link to={`/t/${topic}`}>/t/{topic}</Link>
-        </p>
-        <p className="articleTime">{data.formatTime(created_at)}</p>
-        <p className="articleBody">{body}</p>
-      </article>
+      <>
+        <article className="article">
+          <p className="upvote articleUpvote">⬆</p>
+          <p className="votes articleVotes">{votes}</p>
+          <p className="downvote articleDownvote">⬇</p>
+          <h2 className="articleTitle">{title}</h2>
+          <p className={`articleAuthor${userIsAuthor ? ' userIsAuthor' : ''}`}>
+            <Link to={`/u/${author}`}>/u/{author}</Link>
+          </p>
+          <p className="articleTopic">
+            <Link to={`/t/${topic}`}>/t/{topic}</Link>
+          </p>
+          <p className="articleTime">{data.formatTime(created_at)}</p>
+          <p className="articleBody">{body}</p>
+        </article>
+        <Comments article_id={article_id} loggedInAs={loggedInAs} />
+      </>
     );
   }
 }

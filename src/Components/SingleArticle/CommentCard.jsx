@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import * as data from '../../utils/data';
 import * as api from '../../utils/api';
 import { Link } from '@reach/router';
+import DeletedCard from '../DeletedCard';
 
 class CommentCard extends PureComponent {
   state = {
@@ -20,7 +21,7 @@ class CommentCard extends PureComponent {
     const userIsAuthor = loggedInAs === author;
     const { deleted } = this.state;
 
-    if (deleted) return <p className="deletionNotice">Comment deleted</p>;
+    if (deleted) return <DeletedCard type="Comment" />;
     return (
       <div className="commentCard">
         <p className="upvote commentUpvote">⬆</p>
