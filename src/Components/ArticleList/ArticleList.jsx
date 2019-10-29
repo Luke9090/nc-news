@@ -77,7 +77,7 @@ class ArticleList extends PureComponent {
     return (
       <>
         <form id="sortControls">
-          <label htmlFor="sort_by">
+          <label htmlFor="sort_by" id="sortLabel">
             Sort by...
             <select id="sort_by" value={this.state.query.sort_by} onChange={this.handleChange}>
               <option value="created_at">Date (default)</option>
@@ -85,7 +85,7 @@ class ArticleList extends PureComponent {
               <option value="comment_count">Comments</option>
             </select>
           </label>
-          <label htmlFor="order">
+          <label htmlFor="order" id="orderLabel">
             Order...
             <select id="order" value={this.state.query.order} onChange={this.handleChange}>
               <option value="asc">Ascending</option>
