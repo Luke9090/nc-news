@@ -16,7 +16,6 @@ export const fetchArticles = query => {
     .catch(err => {
       const status = err.response.status;
       const msg = err.response.data.err;
-      console.log('msg and status from api ', msg, status);
       return Promise.reject({ msg, status });
     });
 };
@@ -28,7 +27,6 @@ export const fetchSingleArticle = article_id => {
     .catch(err => {
       const status = err.response.status;
       const msg = err.response.data.err;
-      console.log('msg and status from api ', msg, status);
       return Promise.reject({ msg, status });
     });
 };
@@ -40,7 +38,6 @@ export const fetchArticleComments = article_id => {
     .catch(err => {
       const status = err.response.status;
       const msg = err.response.data.err;
-      console.log('msg and status from api ', msg, status);
       return Promise.reject({ msg, status });
     });
 };
