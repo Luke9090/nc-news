@@ -6,7 +6,7 @@
   grid-template-areas:
     'upvote title title title'
     'votes author topic time'
-    'downvote comments . .';
+    'downvote comments delete .';
 }
 
 .articleCard > * {
@@ -14,42 +14,46 @@
   align-items: center;
 }
 
-.upvote {
+.articleCardUpvote {
   grid-area: upvote;
 }
 
-.downvote {
+.articleCardDownvote {
   grid-area: downvote;
 }
 
-.articleVotes {
+.articleCardVotes {
   grid-area: votes;
 }
 
-.articleTitle {
+.articleCardTitle {
   grid-area: title;
 }
 
-.articleTitle > h3 {
+.articleCardTitle > h3 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.articleAuthor {
+.articleCardAuthor {
   grid-area: author;
 }
 
-.articleTopic {
+.articleCardTopic {
   grid-area: topic;
 }
 
-.articleTime {
+.articleCardTime {
   grid-area: time;
 }
 
-.articleComments {
+.articleCardComments {
   grid-area: comments;
+}
+
+.articleCardDelete {
+  grid-area: delete;
 }
 
 .commentIcon {

@@ -67,3 +67,15 @@ h1:hover {
   margin: auto;
   padding-top: 100px;
 }
+
+.upvote {
+  /* align-items: ; */
+}
+
+.userIsAuthor {
+  color: green;
+}
+
+.userIsAuthor a {
+  color: green;
+}

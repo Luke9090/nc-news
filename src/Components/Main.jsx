@@ -4,17 +4,19 @@ import UserList from './UserList/UserList';
 import TopicList from './TopicList/TopicList';
 import ArticleList from './ArticleList/ArticleList';
 import SingleArticle from './SingleArticle/SingleArticle';
+import ErrorDisplay from './ErrorDisplay';
 
 function Main({ loggedInAs }) {
   return (
     <main>
       <Router>
-        <ArticleList path="/" />
-        <ArticleList path="/t/:topic" />
-        <ArticleList path="/u/:user" />
+        <ArticleList path="/" loggedInAs={loggedInAs} />
+        <ArticleList path="/t/:topic" loggedInAs={loggedInAs} />
+        <ArticleList path="/u/:user" loggedInAs={loggedInAs} />
         <TopicList path="/t" />
-        <UserList path="/u" />
-        <SingleArticle path="/a/:article_id" />
+        <UserList path="/u" loggedInAs={loggedInAs} />
+        <SingleArticle path="/a/:article_id" loggedInAs={loggedInAs} />
+        <ErrorDisplay default />
       </Router>
     </main>
   );

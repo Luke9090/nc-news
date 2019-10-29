@@ -25,10 +25,11 @@ class ArticleList extends PureComponent {
   }
 
   render() {
+    const { loggedInAs } = this.props;
     const { articles, isLoading } = this.state;
     if (isLoading) return <Loading />;
     return articles.map(article => {
-      return <ArticleCard article={article} key={article.article_id} />;
+      return <ArticleCard article={article} key={article.article_id} loggedInAs={loggedInAs} />;
     });
   }
 }

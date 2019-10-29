@@ -1,0 +1,110 @@
+.article {
+  display: grid;
+  grid-template-columns: 30px 1fr 1fr 1fr;
+  grid-template-rows: 2em 2em 2em;
+  grid-template-areas:
+    'upvote title title title'
+    'votes title title title'
+    'downvote author topic time'
+    'body body body body';
+}
+
+.article > * {
+  display: flex;
+  align-items: center;
+}
+
+.upvote {
+  grid-area: upvote;
+}
+
+.downvote {
+  grid-area: downvote;
+}
+
+.articleVotes {
+  grid-area: votes;
+}
+
+.articleTitle {
+  grid-area: title;
+  font-size: 2em;
+}
+
+.articleAuthor {
+  grid-area: author;
+}
+
+.articleTopic {
+  grid-area: topic;
+}
+
+.articleTime {
+  grid-area: time;
+}
+
+.articleComments {
+  grid-area: comments;
+}
+
+.articleBody {
+  grid-area: body;
+}
+
+.commentCard {
+  display: grid;
+  grid-template-columns: 30px 1fr 1fr 1fr;
+  grid-template-rows: 1.5em 1.5em auto;
+  grid-template-areas:
+    'upvote author time delete'
+    'votes body body body'
+    'downvote body body body';
+  margin-bottom: 15px;
+}
+
+.commentCard > * {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.commentAuthor {
+  grid-area: author;
+}
+
+.commentTime {
+  grid-area: time;
+}
+
+.commentDelete {
+  grid-area: delete;
+}
+
+.commentBody {
+  grid-area: body;
+}
+
+#newCommentForm {
+  padding-bottom: 30px;
+}
+
+#newCommentForm h4 {
+  margin: 0;
+  padding: 2px;
+}
+
+#newCommentForm button {
+  margin-right: 10px;
+}
+
+#commentInput {
+  width: 100%;
+  height: 6em;
+}
+
+#postedComment {
+  width: 100%;
+  height: 3em;
+  color: green;
+}

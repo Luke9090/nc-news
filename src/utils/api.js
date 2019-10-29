@@ -25,7 +25,11 @@ export const fetchSingleArticle = article_id => {
 
 export const fetchArticleComments = article_id => {
   return request
-    .get(`/articles/${article_id}/comments`)
+    .get(`/articles/${article_id}/comments`, { params: { order: 'asc' } })
     .then(({ data }) => data.comments)
     .catch(console.log);
+};
+
+export const postComment = (article_id, body, username) => {
+  return request.post(`/articles/${article_id}/comments`, { username, body });
 };

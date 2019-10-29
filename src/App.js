@@ -7,7 +7,7 @@ import Login from './Components/Login';
 
 class App extends PureComponent {
   state = {
-    loggedInAs: 'JessJelly'
+    loggedInAs: 'weegembump'
   };
 
   render() {
