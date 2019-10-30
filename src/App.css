@@ -80,6 +80,10 @@ main {
   #normalLogin {
     display: none;
   }
+
+  header {
+    justify-self: center;
+  }
 }
 
 a {
