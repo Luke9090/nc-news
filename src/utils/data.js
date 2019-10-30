@@ -13,8 +13,6 @@ export const formatTime = timeStr => {
   periods.forEach(period => {
     period.result = Math.floor(gap / period.length);
   });
-  console.log(timeStr);
-  console.log(periods);
   const biggestPeriod = periods.find(period => period.result > 0);
   if (biggestPeriod === undefined) return 'Just now';
   const { name, result } = biggestPeriod;
