@@ -6,7 +6,7 @@
   grid-template-areas:
     'upvote title title title'
     'votes author topic time'
-    'downvote comments delete .';
+    'downvote comments comments delete';
   align-items: center;
   grid-gap: 5px;
 }
