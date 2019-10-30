@@ -2,19 +2,38 @@ import React, { PureComponent } from 'react';
 
 class Login extends PureComponent {
   state = {
-    usernameInput: '',
-    loggedInAs: this.props.loggedInAs
+    usernameInput: ''
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.changeUser(this.state.usernameInput);
+    this.setState({ usernameInput: '' });
+  };
+
+  handleChange = event => {
+    this.setState({ usernameInput: event.target.value });
   };
 
   render() {
-    const { loc } = this.props;
+    const { loc, changeUser, loggedInAs } = this.props;
     const loginId = `${loc}Login`;
+    if (loggedInAs)
+      return (
+        <form id={loginId}>
+          <h3>Login</h3>
+          <p>Logged in as {loggedInAs}</p>
+          <button onClick={() => changeUser(null)}>Sign out</button>
+        </form>
+      );
     return (
-      <div id={loginId}>
+      <form onSubmit={this.handleSubmit} id={loginId}>
         <h3>Login</h3>
-        <p>Login not yet implemented</p>
-        <p>Logged in as {this.state.loggedInAs}</p>
-      </div>
+        <label htmlFor="usernameInput">
+          Username: <input type="text" value={this.state.usernameInput} id="usernameInput" onChange={this.handleChange} />
+        </label>
+        <button type="submit">Sign in</button>
+      </form>
     );
   }
 }

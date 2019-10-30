@@ -28,6 +28,12 @@ header {
   grid-area: login;
 }
 
+#normalLogin *,
+#mobileLogin * {
+  display: block;
+  margin: 0;
+}
+
 nav {
   grid-area: nav;
   display: flex;
@@ -88,6 +94,10 @@ main {
     justify-self: center;
     align-self: center;
     padding-left: 0;
+  }
+
+  #normalLogin {
+    display: none;
   }
 }
 

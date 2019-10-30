@@ -9,7 +9,20 @@ import Blank from './Components/Blank';
 
 class App extends PureComponent {
   state = {
-    loggedInAs: 'weegembump'
+    loggedInAs: null
+  };
+
+  componentDidMount() {
+    const loggedInUser = localStorage.getItem('username');
+    if (loggedInUser || loggedInUser === null) {
+      this.setState({ loggedInAs: loggedInUser });
+    }
+  }
+
+  changeUser = newUsername => {
+    console.log(newUsername);
+    localStorage.setItem('username', newUsername);
+    this.setState({ loggedInAs: newUsername });
   };
 
   render() {
@@ -17,11 +30,11 @@ class App extends PureComponent {
       <>
         <Title />
         <Router id="normalLogin">
-          <Login path="/*" loggedInAs={this.state.loggedInAs} loc="normal" />
+          <Login path="/*" loggedInAs={this.state.loggedInAs} changeUser={this.changeUser} loc="normal" />
           <Blank path="/login" />
         </Router>
         <Menu />
-        <Main loggedInAs={this.state.loggedInAs} />
+        <Main loggedInAs={this.state.loggedInAs} changeUser={this.changeUser} />
       </>
     );
   }

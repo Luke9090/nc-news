@@ -7,11 +7,11 @@ import SingleArticle from './SingleArticle/SingleArticle';
 import ErrorDisplay from './ErrorDisplay';
 import Login from './Login';
 
-function Main({ loggedInAs }) {
+function Main({ loggedInAs, changeUser }) {
   return (
     <main>
       <Router>
-        <Login path="/login" loc="mobile" />
+        <Login path="/login" loc="mobile" loggedInAs={loggedInAs} changeUser={changeUser} />
         <ArticleList path="/" loggedInAs={loggedInAs} />
         <ArticleList path="/t/:topic" loggedInAs={loggedInAs} />
         <ArticleList path="/u/:user" loggedInAs={loggedInAs} />
