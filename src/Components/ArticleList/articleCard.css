@@ -1,25 +1,23 @@
 .articleCard {
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   display: grid;
   grid-template-columns: 30px 1fr 1fr 1fr;
-  grid-template-rows: 2em 2em 2em;
+  grid-template-rows: auto auto auto;
   grid-template-areas:
     'upvote title title title'
     'votes author topic time'
     'downvote comments delete .';
   align-items: center;
-}
-
-.articleCardUpvote {
-  grid-area: upvote;
-}
-
-.articleCardDownvote {
-  grid-area: downvote;
+  grid-gap: 5px;
 }
 
 .articleCardVotes {
-  grid-area: votes;
+  justify-self: center;
+}
+
+.articleCard * {
+  padding: 0;
+  margin: 0;
 }
 
 .articleCardTitle {

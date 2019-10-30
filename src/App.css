@@ -85,6 +85,7 @@ h1:hover {
   display: grid;
   grid-template-columns: 1fr auto auto;
   grid-template-areas: '. sort order';
+  padding-bottom: 1em;
 }
 
 #sortLabel {
