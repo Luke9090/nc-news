@@ -4,6 +4,8 @@ import Title from './Components/Title';
 import Menu from './Components/Menu';
 import Main from './Components/Main';
 import Login from './Components/Login';
+import { Router } from '@reach/router';
+import Blank from './Components/Blank';
 
 class App extends PureComponent {
   state = {
@@ -14,7 +16,10 @@ class App extends PureComponent {
     return (
       <>
         <Title />
-        <Login loggedInAs={this.state.loggedInAs} loc="normal" />
+        <Router id="normalLogin">
+          <Login path="/*" loggedInAs={this.state.loggedInAs} loc="normal" />
+          <Blank path="/login" />
+        </Router>
         <Menu />
         <Main loggedInAs={this.state.loggedInAs} />
       </>
