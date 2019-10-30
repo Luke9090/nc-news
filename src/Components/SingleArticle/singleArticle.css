@@ -1,6 +1,6 @@
 .article {
   display: grid;
-  grid-template-columns: 30px 1fr 1fr 1fr;
+  grid-template-columns: auto 1fr 1fr 1fr;
   grid-template-rows: auto auto auto auto;
   grid-template-areas:
     '. title title title'
@@ -10,7 +10,7 @@
     'body body body body';
   align-items: center;
   justify-items: start;
-  grid-gap: 5px;
+  grid-gap: 5px 10px;
 }
 
 .article * {
