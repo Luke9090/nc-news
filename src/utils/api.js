@@ -53,3 +53,17 @@ export const deleteComment = comment_id => {
 export const deleteArticle = article_id => {
   return request.delete(`/articles/${article_id}`).catch(console.dir);
 };
+
+export const patchCommentVote = (comment_id, vote) => {
+  return request
+    .patch(`/comments/${comment_id}`, { inc_votes: vote })
+    .then(({ data }) => data.comment)
+    .catch(console.dir);
+};
+
+export const patchArticleVote = (article_id, vote) => {
+  return request
+    .patch(`/articles/${article_id}`, { inc_votes: vote })
+    .then(({ data }) => data.article)
+    .catch(console.dir);
+};

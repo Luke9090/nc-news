@@ -8,7 +8,8 @@ import * as api from '../../utils/api';
 
 class ArticleCard extends PureComponent {
   state = {
-    deleted: false
+    deleted: false,
+    article: {}
   };
 
   deleteArticle = ({ target }) => {
@@ -17,18 +18,46 @@ class ArticleCard extends PureComponent {
     });
   };
 
+  componentDidMount() {
+    this.setState({ article: this.props.article });
+  }
+
+  handleVote = (article_id, vote) => {
+    api.patchArticleVote(article_id, vote).then(article => {
+      this.setState(current => {
+        const newArticle = { ...current.article };
+        newArticle.votes = article.votes;
+        return { article: newArticle };
+      });
+    });
+  };
+
   render() {
-    const { article, loggedInAs } = this.props;
-    const { author, title, article_id, topic, created_at, votes, comment_count } = article;
+    const { loggedInAs } = this.props;
+    const { author, title, article_id, topic, created_at, votes, comment_count } = this.state.article;
     const userIsAuthor = loggedInAs === author;
     const { deleted } = this.state;
 
     if (deleted) return <DeletedCard type="Article" />;
     return (
       <section className="articleCard">
-        <p className="upvote articleCardUpvote">⬆</p>
+        <p
+          className="upvote articleCardUpvote"
+          onClick={() => {
+            this.handleVote(article_id, 1);
+          }}
+        >
+          ⬆
+        </p>
         <p className="votes articleCardVotes">{votes}</p>
-        <p className="downvote articleCardUpvote">⬇</p>
+        <p
+          className="downvote articleCardUpvote"
+          onClick={() => {
+            this.handleVote(article_id, -1);
+          }}
+        >
+          ⬇
+        </p>
         <Link to={`/a/${article_id}`} className="articleCardTitle">
           <h3>{title}</h3>
         </Link>
