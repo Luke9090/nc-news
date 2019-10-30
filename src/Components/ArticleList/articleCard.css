@@ -7,10 +7,6 @@
     'upvote title title title'
     'votes author topic time'
     'downvote comments delete .';
-}
-
-.articleCard > * {
-  display: flex;
   align-items: center;
 }
 

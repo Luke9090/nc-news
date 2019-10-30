@@ -1,28 +1,35 @@
 .article {
   display: grid;
   grid-template-columns: 30px 1fr 1fr 1fr;
-  grid-template-rows: 2em 2em 2em;
+  grid-template-rows: auto 2em 2em 2em;
   grid-template-areas:
+    '. title title title'
     'upvote title title title'
     'votes title title title'
     'downvote author topic time'
     'body body body body';
+  align-items: center;
+  justify-items: start;
 }
 
 .article > * {
-  display: flex;
-  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
-.upvote {
+.articleUpvote {
+  font-size: 1.2em;
   grid-area: upvote;
 }
 
-.downvote {
+.articleDownvote {
+  font-size: 1.2em;
   grid-area: downvote;
 }
 
 .articleVotes {
+  font-size: 1.2em;
+  justify-self: center;
   grid-area: votes;
 }
 
@@ -60,11 +67,10 @@
     'votes body body body'
     'downvote body body body';
   margin-bottom: 15px;
+  align-items: center;
 }
 
 .commentCard > * {
-  display: flex;
-  align-items: center;
   padding: 0;
   margin: 0;
 }
@@ -83,6 +89,11 @@
 
 .commentBody {
   grid-area: body;
+}
+
+.commentVotes {
+  grid-area: votes;
+  justify-self: center;
 }
 
 #newCommentForm {
