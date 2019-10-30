@@ -14,7 +14,7 @@ class App extends PureComponent {
     return (
       <>
         <Title />
-        <Login loggedInAs={this.state.loggedInAs} />
+        <Login loggedInAs={this.state.loggedInAs} loc="normal" />
         <Menu />
         <Main loggedInAs={this.state.loggedInAs} />
       </>

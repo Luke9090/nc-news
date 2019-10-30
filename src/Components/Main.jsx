@@ -5,11 +5,13 @@ import TopicList from './TopicList/TopicList';
 import ArticleList from './ArticleList/ArticleList';
 import SingleArticle from './SingleArticle/SingleArticle';
 import ErrorDisplay from './ErrorDisplay';
+import Login from './Login';
 
 function Main({ loggedInAs }) {
   return (
     <main>
       <Router>
+        <Login path="/login" loc="mobile" />
         <ArticleList path="/" loggedInAs={loggedInAs} />
         <ArticleList path="/t/:topic" loggedInAs={loggedInAs} />
         <ArticleList path="/u/:user" loggedInAs={loggedInAs} />

@@ -7,8 +7,10 @@ class Login extends PureComponent {
   };
 
   render() {
+    const { loc } = this.props;
+    const loginId = `${loc}Login`;
     return (
-      <div id="login">
+      <div id={loginId}>
         <h3>Login</h3>
         <p>Login not yet implemented</p>
         <p>Logged in as {this.state.loggedInAs}</p>

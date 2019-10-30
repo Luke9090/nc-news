@@ -37,6 +37,51 @@ main {
   grid-area: main;
 }
 
+#loginLink {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'root';
+  }
+
+  #root {
+    grid-area: root;
+    display: grid;
+    min-width: 400px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'header'
+      'nav'
+      'login'
+      'main';
+    grid-row-gap: 20px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5em;
+    justify-self: center;
+  }
+
+  nav > a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #loginLink {
+    display: inline;
+  }
+
+  #normalLogin {
+    display: none;
+  }
+}
+
 a {
   text-decoration: none;
   color: black;
