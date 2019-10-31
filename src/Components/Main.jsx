@@ -14,7 +14,7 @@ function Main({ loggedInAs, changeUser }) {
         <Login path="/login" loc="mobile" loggedInAs={loggedInAs} changeUser={changeUser} />
         <ArticleList path="/" loggedInAs={loggedInAs} />
         <ArticleList path="/t/:topic" loggedInAs={loggedInAs} />
-        <ArticleList path="/u/:user" loggedInAs={loggedInAs} />
+        <ArticleList path="/u/:author" loggedInAs={loggedInAs} />
         <TopicList path="/t" />
         <UserList path="/u" loggedInAs={loggedInAs} />
         <SingleArticle path="/a/:article_id" loggedInAs={loggedInAs} />
