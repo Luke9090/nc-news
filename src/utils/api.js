@@ -71,3 +71,10 @@ export const patchArticleVote = (article_id, vote) => {
 export const checkBackend = () => {
   return request.get('/');
 };
+
+export const fetchUsers = () => {
+  return request
+    .get('/users')
+    .then(({ data }) => data.users)
+    .catch(console.dir);
+};

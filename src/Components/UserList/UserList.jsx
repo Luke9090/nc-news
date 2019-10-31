@@ -1,10 +1,32 @@
 import React, { PureComponent } from 'react';
+import Loading from '../Loading';
+import * as api from '../../utils/api';
+import UserCard from './UserCard';
 
 class UserList extends PureComponent {
-  state = {};
+  state = {
+    users: [],
+    isLoading: true
+  };
+
+  componentDidMount() {
+    api.fetchUsers().then(users => {
+      this.setState({ users, isLoading: false });
+    });
+  }
 
   render() {
-    return <p>User list goes here - not yet implemented on backend</p>;
+    const { users, isLoading } = this.state;
+    if (isLoading) return <Loading />;
+    return (
+      <>
+        <h2>Users</h2>
+        <p id="userCount">Showing {users.length} users</p>
+        {users.map(user => (
+          <UserCard user={user} />
+        ))}
+      </>
+    );
   }
 }
 
