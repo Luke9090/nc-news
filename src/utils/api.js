@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const request = axios.create({ baseURL: 'https://nc-nws-luke.herokuapp.com/api' });
+const request = axios.create({ baseURL: 'https://nc-news-luke.herokuapp.com/api' });
 
 export const fetchTopics = () => {
   return request
