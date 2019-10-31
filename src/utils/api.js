@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const request = axios.create({ baseURL: 'https://nc-news-luke.herokuapp.com/api' });
+const request = axios.create({ baseURL: 'https://nc-nws-luke.herokuapp.com/api' });
 
 export const fetchTopics = () => {
   return request
@@ -66,4 +66,8 @@ export const patchArticleVote = (article_id, vote) => {
     .patch(`/articles/${article_id}`, { inc_votes: vote })
     .then(({ data }) => data.article)
     .catch(console.dir);
+};
+
+export const checkBackend = () => {
+  return request.get('/');
 };

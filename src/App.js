@@ -6,10 +6,13 @@ import Main from './Components/Main';
 import Login from './Components/Login';
 import { Router } from '@reach/router';
 import Blank from './Components/Blank';
+import ErrorDisplay from './Components/ErrorDisplay';
+import * as api from './utils/api';
 
 class App extends PureComponent {
   state = {
-    loggedInAs: null
+    loggedInAs: null,
+    backendAvailable: true
   };
 
   componentDidMount() {
@@ -17,6 +20,9 @@ class App extends PureComponent {
     if (loggedInUser || loggedInUser === null) {
       this.setState({ loggedInAs: loggedInUser });
     }
+    api.checkBackend().catch(() => {
+      this.setState({ backendAvailable: false });
+    });
   }
 
   changeUser = newUsername => {
@@ -25,6 +31,7 @@ class App extends PureComponent {
   };
 
   render() {
+    const { backendAvailable } = this.state;
     return (
       <>
         <Title />
@@ -33,7 +40,11 @@ class App extends PureComponent {
           <Blank path="/login" />
         </Router>
         <Menu />
-        <Main loggedInAs={this.state.loggedInAs} changeUser={this.changeUser} />
+        {backendAvailable ? (
+          <Main loggedInAs={this.state.loggedInAs} changeUser={this.changeUser} />
+        ) : (
+          <ErrorDisplay status="500" msg="Backend API unreachable. Is Heroku down? Is your internet connection OK?" />
+        )}
       </>
     );
   }
