@@ -37,7 +37,7 @@ class ArticleList extends PureComponent {
       this.setState(
         current => {
           const newQuery = { ...current.query, topic: this.props.topic, author: this.props.user };
-          return { query: newQuery };
+          return { query: newQuery, error: null, isLoading: true };
         },
         () => {
           api
