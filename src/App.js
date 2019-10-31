@@ -20,7 +20,6 @@ class App extends PureComponent {
   }
 
   changeUser = newUsername => {
-    console.log(newUsername);
     localStorage.setItem('username', newUsername);
     this.setState({ loggedInAs: newUsername });
   };
