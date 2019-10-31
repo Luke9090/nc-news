@@ -30,7 +30,8 @@ class Login extends PureComponent {
       <form onSubmit={this.handleSubmit} id={loginId}>
         <h3>Login</h3>
         <label htmlFor="usernameInput">
-          Username: <input type="text" value={this.state.usernameInput} id="usernameInput" onChange={this.handleChange} />
+          Username:{' '}
+          <input type="text" value={this.state.usernameInput} id="usernameInput" onChange={this.handleChange} placeholder="e.g. weegembump" required />
         </label>
         <button type="submit">Sign in</button>
       </form>
