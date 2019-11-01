@@ -72,3 +72,14 @@ export const fetchUsers = () => {
     .then(({ data }) => data.users)
     .catch(console.dir);
 };
+
+export const fetchSingleUser = id => {
+  return request
+    .get(`/users/${id}`)
+    .then(({ data }) => data.user)
+    .catch(err => {
+      const status = err.response.status;
+      const msg = err.response.data.err;
+      return Promise.reject({ msg, status });
+    });
+};
