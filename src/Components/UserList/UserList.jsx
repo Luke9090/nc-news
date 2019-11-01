@@ -20,7 +20,7 @@ class UserList extends PureComponent {
     if (isLoading) return <Loading />;
     return (
       <>
-        <h2>Users</h2>
+        <h2>All users</h2>
         <p id="userCount">Showing {users.length} users</p>
         {users.map(user => (
           <UserCard user={user} />
