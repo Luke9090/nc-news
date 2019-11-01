@@ -23,6 +23,7 @@ class ArticleList extends PureComponent {
       .catch(({ status, msg }) => {
         this.setState({ error: { status, msg }, isLoading: false });
       });
+    document.title = author ? `/u/${author} - NC-News` : topic ? `/t/${topic} - NC-News` : 'Articles - NC-News';
   };
 
   componentDidMount() {

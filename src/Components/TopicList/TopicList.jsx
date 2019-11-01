@@ -13,6 +13,7 @@ class TopicList extends PureComponent {
     api.fetchTopics().then(topics => {
       this.setState({ topics, isLoading: false });
     });
+    document.title = 'Topics - NC-News';
   }
 
   render() {

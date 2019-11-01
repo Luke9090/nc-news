@@ -19,6 +19,7 @@ class Article extends PureComponent {
       .fetchSingleArticle(this.props.article_id)
       .then(article => {
         this.setState({ article, isLoading: false });
+        document.title = `${article.title} - NC-News`;
       })
       .catch(({ status, msg }) => {
         this.setState({ error: { status, msg }, isLoading: false });
