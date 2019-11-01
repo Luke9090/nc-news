@@ -18,17 +18,15 @@
   margin: 0;
 }
 
-.articleUpvote {
+.upvote {
   font-size: 1.2em;
-  grid-area: upvote;
 }
 
-.articleDownvote {
+.downvote {
   font-size: 1.2em;
-  grid-area: downvote;
 }
 
-.articleVotes {
+.votes {
   font-size: 1.2em;
   justify-self: center;
   grid-area: votes;
@@ -95,7 +93,7 @@
   grid-area: body;
 }
 
-.commentVotes {
+.votes {
   grid-area: votes;
   justify-self: center;
 }

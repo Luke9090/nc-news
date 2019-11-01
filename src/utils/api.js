@@ -55,17 +55,11 @@ export const deleteArticle = article_id => {
 };
 
 export const patchCommentVote = (comment_id, vote) => {
-  return request
-    .patch(`/comments/${comment_id}`, { inc_votes: vote })
-    .then(({ data }) => data.comment)
-    .catch(console.dir);
+  return request.patch(`/comments/${comment_id}`, { inc_votes: vote }).then(({ data }) => data.comment);
 };
 
 export const patchArticleVote = (article_id, vote) => {
-  return request
-    .patch(`/articles/${article_id}`, { inc_votes: vote })
-    .then(({ data }) => data.article)
-    .catch(console.dir);
+  return request.patch(`/articles/${article_id}`, { inc_votes: vote }).then(({ data }) => data.article);
 };
 
 export const checkBackend = () => {

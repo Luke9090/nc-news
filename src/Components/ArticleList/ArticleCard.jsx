@@ -5,6 +5,7 @@ import './articleCard.css';
 import DeletedCard from '../DeletedCard';
 import commentIcon from '../../imgs/commentIcon.svg';
 import * as api from '../../utils/api';
+import Voter from '../Voter';
 
 class ArticleCard extends PureComponent {
   state = {
@@ -22,16 +23,6 @@ class ArticleCard extends PureComponent {
     this.setState({ article: this.props.article });
   }
 
-  handleVote = (article_id, vote) => {
-    api.patchArticleVote(article_id, vote).then(article => {
-      this.setState(current => {
-        const newArticle = { ...current.article };
-        newArticle.votes = article.votes;
-        return { article: newArticle };
-      });
-    });
-  };
-
   render() {
     const { loggedInAs } = this.props;
     const { author, title, article_id, topic, created_at, votes, comment_count } = this.state.article;
@@ -40,24 +31,8 @@ class ArticleCard extends PureComponent {
 
     if (deleted) return <DeletedCard type="Article" />;
     return (
-      <section className="articleCard">
-        <p
-          className="upvote articleCardUpvote"
-          onClick={() => {
-            this.handleVote(article_id, 1);
-          }}
-        >
-          ⬆
-        </p>
-        <p className="votes articleCardVotes">{votes}</p>
-        <p
-          className="downvote articleCardUpvote"
-          onClick={() => {
-            this.handleVote(article_id, -1);
-          }}
-        >
-          ⬇
-        </p>
+      <section className="articleCard card">
+        <Voter votes={votes || 0} id={article_id} voteCategory="article" />
         <Link to={`/a/${article_id}`} className="articleCardTitle">
           <h3>{title}</h3>
         </Link>

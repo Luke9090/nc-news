@@ -3,6 +3,7 @@ import * as data from '../../utils/data';
 import * as api from '../../utils/api';
 import { Link } from '@reach/router';
 import DeletedCard from '../DeletedCard';
+import Voter from '../Voter';
 
 class CommentCard extends PureComponent {
   state = {
@@ -13,12 +14,6 @@ class CommentCard extends PureComponent {
   deleteComment = ({ target }) => {
     api.deleteComment(target.id).then(() => {
       this.setState({ deleted: true });
-    });
-  };
-
-  handleVote = (comment_id, vote) => {
-    api.patchCommentVote(comment_id, vote).then(comment => {
-      this.setState({ comment });
     });
   };
 
@@ -34,24 +29,8 @@ class CommentCard extends PureComponent {
 
     if (deleted) return <DeletedCard type="Comment" />;
     return (
-      <div className="commentCard">
-        <p
-          className="upvote commentUpvote"
-          onClick={() => {
-            this.handleVote(comment_id, 1);
-          }}
-        >
-          ⬆
-        </p>
-        <p className="votes commentVotes">{votes}</p>
-        <p
-          className="downvote commentDownvote"
-          onClick={() => {
-            this.handleVote(comment_id, -1);
-          }}
-        >
-          ⬇
-        </p>
+      <div className="commentCard card">
+        <Voter votes={votes || 0} id={comment_id} voteCategory="comment" />
         <Link to={`/u/${author}`} className={`commentAuthor${userIsAuthor ? ' userIsAuthor' : ''}`}>
           <h4>/u/{author}</h4>
         </Link>

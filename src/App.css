@@ -158,22 +158,42 @@ h1:hover {
   grid-area: order;
 }
 
-.upvote {
+.vote {
+  height: 1em;
+  background-color: black;
   justify-self: center;
+}
+
+.card > .vote {
+  height: 0.8em;
+}
+
+.upvote {
+  grid-area: upvote;
   align-self: end;
 }
 
 .downvote {
-  justify-self: center;
+  grid-area: downvote;
   align-self: start;
 }
 
 .upvote:hover {
-  color: green;
+  background-color: green;
+  filter: opacity(50%);
   cursor: pointer;
 }
 
 .downvote:hover {
-  color: red;
+  background-color: red;
+  filter: opacity(50%);
   cursor: pointer;
+}
+
+.upvote.selected {
+  background-color: green;
+}
+
+.downvote.selected {
+  background-color: red;
 }

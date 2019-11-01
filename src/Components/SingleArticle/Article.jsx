@@ -6,6 +6,7 @@ import * as data from '../../utils/data';
 import Comments from './Comments';
 import './singleArticle.css';
 import ErrorDisplay from '../ErrorDisplay';
+import Voter from '../Voter';
 
 class Article extends PureComponent {
   state = {
@@ -26,12 +27,6 @@ class Article extends PureComponent {
       });
   }
 
-  handleVote = (article_id, vote) => {
-    api.patchArticleVote(article_id, vote).then(article => {
-      this.setState({ article });
-    });
-  };
-
   render() {
     const jumpToComments = this.props.location.hash === '#comments';
     const { loggedInAs, article_id } = this.props;
@@ -43,23 +38,7 @@ class Article extends PureComponent {
     return (
       <section id="articleSection">
         <article className="article">
-          <p
-            className="upvote articleUpvote"
-            onClick={() => {
-              this.handleVote(article_id, 1);
-            }}
-          >
-            ⬆
-          </p>
-          <p className="votes articleVotes">{votes}</p>
-          <p
-            className="downvote articleDownvote"
-            onClick={() => {
-              this.handleVote(article_id, -1);
-            }}
-          >
-            ⬇
-          </p>
+          <Voter votes={votes || 0} id={article_id} voteCategory="article" />
           <h2 className="articleTitle">{title}</h2>
           <p className={`articleAuthor${userIsAuthor ? ' userIsAuthor' : ''}`}>
             <Link to={`/u/${author}`}>/u/{author}</Link>
