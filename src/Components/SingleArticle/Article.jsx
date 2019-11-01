@@ -32,6 +32,7 @@ class Article extends PureComponent {
   };
 
   render() {
+    const jumpToComments = this.props.location.hash === '#comments';
     const { loggedInAs, article_id } = this.props;
     const { article, isLoading, error } = this.state;
     if (isLoading) return <Loading />;
@@ -68,7 +69,7 @@ class Article extends PureComponent {
           <p className="articleTime">{data.formatTime(created_at)}</p>
           <p className="articleBody">{body}</p>
         </article>
-        <Comments article_id={article_id} loggedInAs={loggedInAs} />
+        <Comments article_id={article_id} loggedInAs={loggedInAs} jumpToComments={jumpToComments} />
       </section>
     );
   }

@@ -12,11 +12,13 @@ class Comments extends PureComponent {
     justPosted: false
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
     api.fetchArticleComments(this.props.article_id).then(comments => {
-      this.setState({ comments, isLoading: false });
+      this.setState({ comments, isLoading: false }, () => {
+        this.commentsStart.scrollIntoView();
+      });
     });
-  }
+  };
 
   updateComments = () => {
     api.fetchArticleComments(this.props.article_id).then(comments => {
@@ -35,7 +37,11 @@ class Comments extends PureComponent {
     if (isLoading) return <Loading />;
     return (
       <section id="comments">
-        <h3>
+        <h3
+          ref={el => {
+            this.commentsStart = el;
+          }}
+        >
           <img src={commentIcon} alt="Comment Icon" className="commentIcon" />
           {comments.length} Comments
         </h3>
