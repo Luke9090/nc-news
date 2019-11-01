@@ -1,0 +1,25 @@
+.userCard {
+  display: grid;
+  grid-template-columns: 5em 1fr;
+  grid-template-rows: 2.5em 2.5em;
+  grid-template-areas:
+    'avatar username'
+    'avatar name';
+  column-gap: 1em;
+  margin-bottom: 1em;
+  align-items: center;
+}
+
+.userAvatar {
+  grid-area: avatar;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.userUsername {
+  grid-area: username;
+}
+
+.userName {
+  grid-area: name;
+}

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Loading from '../Loading';
 import * as api from '../../utils/api';
 import UserCard from './UserCard';
+import './UserList.css';
 
 class UserList extends PureComponent {
   state = {
