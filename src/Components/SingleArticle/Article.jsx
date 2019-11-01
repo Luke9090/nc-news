@@ -4,6 +4,7 @@ import * as api from '../../utils/api';
 import { Link } from '@reach/router';
 import * as data from '../../utils/data';
 import Comments from './Comments';
+import './singleArticle.css';
 import ErrorDisplay from '../ErrorDisplay';
 
 class Article extends PureComponent {
@@ -38,7 +39,7 @@ class Article extends PureComponent {
     const { title, body, votes, topic, author, created_at } = article;
     const userIsAuthor = loggedInAs === author;
     return (
-      <>
+      <section id="articleSection">
         <article className="article">
           <p
             className="upvote articleUpvote"
@@ -68,7 +69,7 @@ class Article extends PureComponent {
           <p className="articleBody">{body}</p>
         </article>
         <Comments article_id={article_id} loggedInAs={loggedInAs} />
-      </>
+      </section>
     );
   }
 }
