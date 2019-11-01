@@ -10,6 +10,12 @@
   align-items: center;
 }
 
+h2,
+p {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
 .userAvatar {
   grid-area: avatar;
   max-height: 100%;
