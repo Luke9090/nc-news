@@ -178,13 +178,13 @@ h1:hover {
   align-self: start;
 }
 
-.upvote:hover {
+.upvote.hoverable:hover {
   background-color: green;
   filter: opacity(50%);
   cursor: pointer;
 }
 
-.downvote:hover {
+.downvote.hoverable:hover {
   background-color: red;
   filter: opacity(50%);
   cursor: pointer;

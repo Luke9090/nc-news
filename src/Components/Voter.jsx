@@ -44,12 +44,13 @@ class Voter extends PureComponent {
   render() {
     const { votes } = this.props;
     const { userVote } = this.state;
+    let isTouch = !!('ontouchstart' in window) || window.navigator.msMaxTouchPoints > 0;
     return (
       <>
         <img
           src={upvote}
           alt="upvote arrow"
-          className={`upvote vote ${this.state.userVote === 1 && 'selected'}`}
+          className={`upvote vote ${this.state.userVote === 1 && 'selected'} ${!isTouch && 'hoverable'}`}
           onClick={event => {
             this.handleVote('up', event);
           }}
@@ -58,7 +59,7 @@ class Voter extends PureComponent {
         <img
           src={downvote}
           alt="downvote arrow"
-          className={`downvote vote ${this.state.userVote === -1 && 'selected'}`}
+          className={`downvote vote ${this.state.userVote === -1 && 'selected'} ${!isTouch && 'hoverable'}`}
           onClick={event => {
             this.handleVote('down', event);
           }}
