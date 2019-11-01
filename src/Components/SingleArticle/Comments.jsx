@@ -15,7 +15,7 @@ class Comments extends PureComponent {
   componentDidMount = () => {
     api.fetchArticleComments(this.props.article_id).then(comments => {
       this.setState({ comments, isLoading: false }, () => {
-        this.commentsStart.scrollIntoView();
+        if (this.props.jumpToComments) this.commentsStart.scrollIntoView();
       });
     });
   };
