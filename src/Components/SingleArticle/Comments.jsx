@@ -26,7 +26,7 @@ class Comments extends PureComponent {
         this.bottom.scrollIntoView();
         setTimeout(() => {
           this.setState({ justPosted: false });
-        }, 1000);
+        }, 2000);
       });
     });
   };
