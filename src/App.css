@@ -168,6 +168,11 @@ h1:hover {
   height: 0.8em;
 }
 
+.votes {
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+
 .upvote {
   grid-area: upvote;
   align-self: end;
