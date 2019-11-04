@@ -25,6 +25,7 @@ main {
 body {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 100vh;
   grid-template-areas: '. root .';
 }
 
@@ -70,6 +71,8 @@ nav {
 main {
   grid-area: main;
   width: 100%;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 #loginLink {
@@ -80,6 +83,7 @@ main {
   body {
     display: grid;
     grid-template-columns: auto;
+    grid-template-rows: auto;
     grid-template-areas: 'root';
   }
 
@@ -122,6 +126,11 @@ main {
 
   #normalLogin {
     display: none;
+  }
+
+  main {
+    overflow: visible;
+    margin-left: 0.2em;
   }
 }
 
