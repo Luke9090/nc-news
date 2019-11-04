@@ -73,6 +73,12 @@ export const fetchUsers = () => {
     .catch(console.dir);
 };
 
+export const validateUsername = (username) => {
+  return request
+    .get(`/users/${username}/validate`)
+    .then(({ data }) => data.exists);
+};
+
 export const fetchSingleUser = username => {
   return request
     .get(`/users/${username}`)
