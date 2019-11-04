@@ -3,7 +3,7 @@ import { Link } from '@reach/router';
 
 function TopicCard({ topic }) {
   return (
-    <section className="topicCard">
+    <section className="topicCard card">
       <Link to={`/t/${topic.slug}`}>
         <h3>{topic.slug}</h3>
       </Link>
