@@ -73,13 +73,17 @@ export const fetchUsers = () => {
     .catch(console.dir);
 };
 
-export const fetchSingleUser = id => {
+export const fetchSingleUser = username => {
   return request
-    .get(`/users/${id}`)
+    .get(`/users/${username}`)
     .then(({ data }) => data.user)
     .catch(err => {
       const status = err.response.status;
       const msg = err.response.data.err;
       return Promise.reject({ msg, status });
     });
+};
+
+export const fetchUserComments = username => {
+  return request.get(`users/${username}/comments`).then(({ data }) => data.comments);
 };

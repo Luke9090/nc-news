@@ -1,0 +1,18 @@
+.userCommentCard {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  grid-template-rows: auto 2em auto;
+  grid-template-areas:
+    'upvote title title'
+    'votes time delete'
+    'downvote body body';
+  margin-bottom: 30px;
+}
+
+.userCommentCard * {
+  margin: 0;
+}
+
+.commentArticleTitle {
+  grid-area: title;
+}

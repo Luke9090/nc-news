@@ -1,28 +1,37 @@
 import React, { PureComponent } from 'react';
 import { Router } from '@reach/router';
-import UserCard from './UserList/UserCard';
-import ArticleList from './ArticleList/ArticleList';
+import UserCard from '../UserList/UserCard';
+import ArticleList from '../ArticleList/ArticleList';
 import CommentList from './CommentList';
-import Loading from './Loading';
-import * as api from '../utils/api';
+import Loading from '../Loading';
+import * as api from '../../utils/api';
+import ErrorDisplay from '../ErrorDisplay';
+import './UserPage.css';
 
 class UserPage extends PureComponent {
   state = {
     user: {},
-    isLoading: true
+    isLoading: true,
+    error: null
   };
 
   componentDidMount() {
     const { author } = this.props;
-    api.fetchSingleUser(author).then(user => {
-      this.setState({ user, isLoading: false });
-    });
+    api
+      .fetchSingleUser(author)
+      .then(user => {
+        this.setState({ user, isLoading: false });
+      })
+      .catch(error => {
+        this.setState({ error, isLoading: false });
+      });
   }
 
   render() {
     const { loggedInAs } = this.props;
-    const { user, isLoading } = this.state;
+    const { user, isLoading, error } = this.state;
     if (isLoading) return <Loading />;
+    if (error) return <ErrorDisplay msg={error.msg} status={error.status} />;
     return (
       <>
         <UserCard loggedInAs={loggedInAs} user={user} />

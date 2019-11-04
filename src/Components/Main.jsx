@@ -5,7 +5,7 @@ import TopicList from './TopicList/TopicList';
 import ArticleList from './ArticleList/ArticleList';
 import Article from './SingleArticle/Article';
 import ErrorDisplay from './ErrorDisplay';
-import UserPage from './UserPage';
+import UserPage from './UserPage/UserPage';
 import Login from './Login';
 
 function Main({ loggedInAs, changeUser }) {
