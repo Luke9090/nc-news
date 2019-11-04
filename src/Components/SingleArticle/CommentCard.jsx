@@ -7,8 +7,7 @@ import Voter from '../Voter';
 
 class CommentCard extends PureComponent {
   state = {
-    deleted: false,
-    comment: {}
+    deleted: false
   };
 
   deleteComment = ({ target }) => {
@@ -17,13 +16,9 @@ class CommentCard extends PureComponent {
     });
   };
 
-  componentDidMount() {
-    this.setState({ comment: this.props.comment });
-  }
-
   render() {
-    const { loggedInAs } = this.props;
-    const { votes, created_at, author, body, comment_id } = this.state.comment;
+    const { loggedInAs, comment } = this.props;
+    const { votes, created_at, author, body, comment_id } = comment;
     const userIsAuthor = loggedInAs === author;
     const { deleted } = this.state;
 
