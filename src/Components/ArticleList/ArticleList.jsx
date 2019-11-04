@@ -43,13 +43,17 @@ class ArticleList extends PureComponent {
   render() {
     const { loggedInAs, author, topic } = this.props;
     const { articles, isLoading, error } = this.state;
-    const topicHeader = `${articles.length} articles in /t/${topic}`;
-    const authorHeader = `${articles.length} articles by /u/${author}`;
+    const topicHeader = <h2>{`${articles.length} articles in /t/${topic}`}</h2>;
+    const authorHeader = (
+      <h3>
+        {`${articles.length} articles by`} <span className="username">/u/{`${author}`}</span>
+      </h3>
+    );
     if (isLoading) return <Loading />;
     if (!isLoading && error) return <ErrorDisplay status={error.status} msg={error.msg} />;
     return (
       <>
-        <h2>{topic ? topicHeader : author ? authorHeader : 'All articles'}</h2>
+        {topic ? topicHeader : author ? authorHeader : 'All articles'}
         <form id="sortControls">
           <label htmlFor="sort_by" id="sortLabel">
             Sort by...

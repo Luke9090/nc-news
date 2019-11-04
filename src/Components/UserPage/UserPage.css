@@ -13,3 +13,7 @@
 .commentArticleTitle {
   grid-area: title;
 }
+
+.username {
+  font-style: italic;
+}

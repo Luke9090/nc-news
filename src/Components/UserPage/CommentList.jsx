@@ -20,9 +20,16 @@ class CommentList extends PureComponent {
     const { isLoading, comments } = this.state;
     const { loggedInAs } = this.props;
     if (isLoading) return <Loading />;
-    return comments.map(comment => {
-      return <UserCommentCard comment={comment} loggedInAs={loggedInAs} />;
-    });
+    return (
+      <>
+        <h3>
+          {comments.length} comments by <span className="username">/u/{this.props.author}</span>
+        </h3>
+        {comments.map(comment => {
+          return <UserCommentCard comment={comment} loggedInAs={loggedInAs} key={comment.comment_id} />;
+        })}
+      </>
+    );
   }
 }
 

@@ -34,6 +34,9 @@ class UserPage extends PureComponent {
     if (error) return <ErrorDisplay msg={error.msg} status={error.status} />;
     return (
       <>
+        <h2>
+          User details for <span className="username">/u/{user.username}</span>
+        </h2>
         <UserCard loggedInAs={loggedInAs} user={user} />
         <Router>
           <ArticleList path="/" loggedInAs={loggedInAs} />
