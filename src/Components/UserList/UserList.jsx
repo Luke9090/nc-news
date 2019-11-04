@@ -24,7 +24,7 @@ class UserList extends PureComponent {
         <h2>All users</h2>
         <p id="userCount">Showing {users.length} users</p>
         {users.map(user => (
-          <UserCard user={user} />
+          <UserCard user={user} key={user.username} />
         ))}
       </>
     );
