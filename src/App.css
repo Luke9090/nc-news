@@ -202,3 +202,13 @@ h1:hover {
 .downvote.selected {
   background-color: red;
 }
+
+.card * {
+  padding: 0;
+  margin: 0;
+}
+
+.votes {
+  margin-left: 0.6em;
+  margin-right: 0.6em;
+}
