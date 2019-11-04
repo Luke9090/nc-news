@@ -42,7 +42,7 @@ class Comments extends PureComponent {
             this.commentsStart = el;
           }}
         >
-          <img src={commentIcon} alt="Comment Icon" className="commentIcon" />
+          <img src={commentIcon} alt="Comment Icon" className="prefixIcon" />
           {comments.length} Comments
         </h3>
         {comments.map(comment => {

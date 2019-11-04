@@ -1,5 +1,4 @@
 .articleCard {
-  padding-bottom: 30px;
   display: grid;
   grid-template-columns: auto 1fr 1fr 1fr;
   grid-template-rows: auto auto auto;
@@ -8,7 +7,6 @@
     'votes author topic time'
     'downvote comments comments delete';
   align-items: center;
-  grid-gap: 5px;
 }
 
 .votes {
@@ -45,6 +43,8 @@
   grid-area: delete;
 }
 
-.commentIcon {
+.prefixIcon {
   height: 1.5em;
+  position: relative;
+  top: +0.4em;
 }

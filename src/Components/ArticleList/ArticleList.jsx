@@ -53,7 +53,7 @@ class ArticleList extends PureComponent {
     if (!isLoading && error) return <ErrorDisplay status={error.status} msg={error.msg} />;
     return (
       <>
-        {topic ? topicHeader : author ? authorHeader : 'All articles'}
+        {topic ? topicHeader : author ? authorHeader : <h2>All articles</h2>}
         <form id="sortControls">
           <label htmlFor="sort_by" id="sortLabel">
             Sort by...

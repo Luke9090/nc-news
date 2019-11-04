@@ -44,7 +44,7 @@ class ArticleCard extends PureComponent {
         </p>
         <p className="articleCardTime">{data.formatTime(created_at)}</p>
         <Link to={`/a/${article_id}#comments`} className="articleCardComments">
-          <img src={commentIcon} alt="Comment Icon" className="commentIcon" />
+          <img src={commentIcon} alt="Comment Icon" className="prefixIcon" />
           {comment_count} comments
         </Link>
         <p className="articleCardDelete">

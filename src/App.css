@@ -184,7 +184,6 @@ h1:hover {
 
 .vote {
   height: 1em;
-  background-color: black;
   justify-self: center;
 }
 
@@ -208,23 +207,29 @@ h1:hover {
 }
 
 .upvote.hoverable:hover {
-  background-color: green;
-  filter: opacity(50%);
+  filter: invert(61%) sepia(18%) saturate(5548%) hue-rotate(78deg) brightness(110%) contrast(130%) opacity(50%);
   cursor: pointer;
 }
 
 .downvote.hoverable:hover {
-  background-color: red;
-  filter: opacity(50%);
+  filter: invert(20%) sepia(79%) saturate(7452%) hue-rotate(357deg) brightness(90%) contrast(125%) opacity(50%);
   cursor: pointer;
 }
 
 .upvote.selected {
-  background-color: green;
+  filter: invert(61%) sepia(18%) saturate(5548%) hue-rotate(78deg) brightness(110%) contrast(130%);
 }
 
 .downvote.selected {
-  background-color: red;
+  filter: invert(20%) sepia(79%) saturate(7452%) hue-rotate(357deg) brightness(90%) contrast(125%);
+}
+
+.pending {
+  filter: none;
+}
+
+.pending:hover {
+  filter: none;
 }
 
 .card * {
@@ -235,4 +240,12 @@ h1:hover {
 .votes {
   margin-left: 0.6em;
   margin-right: 0.6em;
+}
+
+.card {
+  margin-bottom: 2em;
+}
+
+.card:hover {
+  background-color: silver;
 }
