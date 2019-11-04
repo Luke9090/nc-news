@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import './login.css';
 
 class Login extends PureComponent {
   state = {
@@ -20,14 +21,16 @@ class Login extends PureComponent {
     const loginId = `${loc}Login`;
     if (loggedInAs)
       return (
-        <form id={loginId}>
+        <form id={loginId} className="login">
           <h3>Login</h3>
-          <p>Logged in as {loggedInAs}</p>
+          <p>
+            Logged in as <span className="username">/u/{loggedInAs}</span>
+          </p>
           <button onClick={() => changeUser(null)}>Sign out</button>
         </form>
       );
     return (
-      <form onSubmit={this.handleSubmit} id={loginId}>
+      <form onSubmit={this.handleSubmit} id={loginId} className="login">
         <h3>Login</h3>
         <label htmlFor="usernameInput">
           Username:{' '}

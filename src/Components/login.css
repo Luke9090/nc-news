@@ -1,0 +1,23 @@
+#normalLogin > *,
+#mobileLogin > * {
+  margin: 0;
+  margin: 0.15em;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#mobileLogin {
+  align-items: flex-start;
+}
+
+#normalLogin {
+  border: black;
+}
+
+#normalLogin > h3 {
+  align-self: center;
+}

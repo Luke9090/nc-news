@@ -16,7 +16,8 @@ class App extends PureComponent {
   };
 
   componentDidMount() {
-    const loggedInUser = localStorage.getItem('username');
+    let loggedInUser = localStorage.getItem('username');
+    if (loggedInUser === 'null') loggedInUser = null;
     if (loggedInUser || loggedInUser === null) {
       this.setState({ loggedInAs: loggedInUser });
     }

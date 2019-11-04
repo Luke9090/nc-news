@@ -53,12 +53,6 @@ header {
   grid-area: login;
 }
 
-#normalLogin *,
-#mobileLogin * {
-  display: block;
-  margin: 0;
-}
-
 nav {
   grid-area: nav;
   display: flex;
@@ -153,11 +147,6 @@ a:hover {
 
 h1:hover {
   text-decoration: none;
-}
-
-#login > * {
-  margin: 0;
-  padding: 0;
 }
 
 .loadingImg {
