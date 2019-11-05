@@ -66,17 +66,17 @@ export const checkBackend = () => {
   return request.get('/');
 };
 
-export const fetchUsers = () => {
+export const fetchUsers = (sort_by = 'username', order = 'asc') => {
   return request
-    .get('/users')
-    .then(({ data }) => data.users)
+    .get('/users', { params: { sort_by, order } })
+    .then(({ data }) => {
+      return data.users;
+    })
     .catch(console.dir);
 };
 
-export const validateUsername = (username) => {
-  return request
-    .get(`/users/${username}/validate`)
-    .then(({ data }) => data.exists);
+export const validateUsername = username => {
+  return request.get(`/users/${username}/validate`).then(({ data }) => data.exists);
 };
 
 export const fetchSingleUser = username => {

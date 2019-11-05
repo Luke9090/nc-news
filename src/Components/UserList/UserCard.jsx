@@ -5,7 +5,7 @@ import commentIcon from '../../imgs/commentIcon.svg';
 import articleIcon from '../../imgs/articleIcon.png';
 
 function UserCard({ user }) {
-  const { username, avatar_url, name, comment_count, article_count } = user;
+  const { username, avatar_url, name, comment_count, article_count, article_votes, comment_votes } = user;
   const addDefaultAvatar = event => {
     event.target.src = defaultAvatar;
   };
@@ -28,6 +28,9 @@ function UserCard({ user }) {
         <img src={commentIcon} alt="Comment Icon" className="prefixIcon" />
         <p>{comment_count} comments</p>
       </Link>
+      <p className="score articleScore">{article_votes} article score</p>
+      <p className="score commentScore">{comment_votes} comment score</p>
+      <p className="score totalScore">{parseInt(comment_votes) + parseInt(article_votes)} total score</p>
     </section>
   );
 }
