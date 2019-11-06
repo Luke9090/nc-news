@@ -93,3 +93,10 @@ export const fetchSingleUser = username => {
 export const fetchUserComments = username => {
   return request.get(`users/${username}/comments`).then(({ data }) => data.comments);
 };
+
+export const postArticle = (body, title, topic, username) => {
+  return request
+    .post('/articles', { body, title, topic, username })
+    .then(({ data }) => data.article.article_id)
+    .catch(console.dir);
+};

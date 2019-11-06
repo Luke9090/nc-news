@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import * as api from '../../utils/api';
-import { Link } from '@reach/router';
+import NotLoggedIn from '../NotLoggedIn';
 
 class PostComment extends PureComponent {
   state = {
@@ -25,12 +25,7 @@ class PostComment extends PureComponent {
   render() {
     const { commentInput } = this.state;
     const { loggedInAs } = this.props;
-    if (!loggedInAs)
-      return (
-        <p className="notLoggedIn">
-          <Link to="/login">Log in or create account</Link> to comment
-        </p>
-      );
+    if (!loggedInAs) return <NotLoggedIn />;
     return (
       <form id="newCommentForm" onSubmit={this.handleSubmit}>
         <label htmlFor="commentInput">

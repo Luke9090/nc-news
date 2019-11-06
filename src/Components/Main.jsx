@@ -7,6 +7,7 @@ import Article from './SingleArticle/Article';
 import ErrorDisplay from './ErrorDisplay';
 import UserPage from './UserPage/UserPage';
 import Login from './Login';
+import Post from './Post';
 
 function Main({ loggedInAs, changeUser }) {
   return (
@@ -19,6 +20,7 @@ function Main({ loggedInAs, changeUser }) {
         <TopicList path="/t" />
         <UserList path="/u" loggedInAs={loggedInAs} />
         <Article path="/a/:article_id" loggedInAs={loggedInAs} />
+        <Post path="/post" loggedInAs={loggedInAs} />
         <ErrorDisplay default />
       </Router>
     </main>

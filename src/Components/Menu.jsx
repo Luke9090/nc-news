@@ -7,6 +7,7 @@ function Menu() {
       <Link to="/">Homepage</Link>
       <Link to="/t">Topics</Link>
       <Link to="/u">Users</Link>
+      <Link to="/post">Contribute</Link>
       <Link to="/login" id="loginLink">
         Login
       </Link>
