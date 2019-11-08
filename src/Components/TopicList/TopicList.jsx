@@ -18,11 +18,10 @@ class TopicList extends PureComponent {
 
   render() {
     const { topics, isLoading } = this.state;
-    if (isLoading) return <Loading />;
     return (
       <>
         <h2>All topics</h2>
-        {topics.map(topic => {
+        {isLoading ? <Loading /> : topics.map(topic => {
           return <TopicCard topic={topic} key={topic.slug} />;
         })}
       </>

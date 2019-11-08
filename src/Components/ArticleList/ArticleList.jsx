@@ -49,7 +49,6 @@ class ArticleList extends PureComponent {
         {`${articles.length} articles by`} <span className="username">/u/{`${author}`}</span>
       </h3>
     );
-    if (isLoading) return <Loading />;
     if (!isLoading && error) return <ErrorDisplay status={error.status} msg={error.msg} />;
     return (
       <>
@@ -71,7 +70,7 @@ class ArticleList extends PureComponent {
             </select>
           </label>
         </form>
-        {articles.map(article => {
+        {isLoading ? <Loading /> : articles.map(article => {
           return <ArticleCard article={article} key={article.article_id} loggedInAs={loggedInAs} />;
         })}
       </>

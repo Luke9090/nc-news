@@ -29,7 +29,6 @@ class UserList extends PureComponent {
 
   render() {
     const { users, isLoading } = this.state;
-    if (isLoading) return <Loading />;
     return (
       <>
         <h2>All users</h2>
@@ -53,8 +52,8 @@ class UserList extends PureComponent {
             </select>
           </label>
         </form>
-        <p id="userCount">Showing {users.length} users</p>
-        {users.map(user => (
+        {isLoading ? '' : <p id="userCount">Showing {users.length} users</p>}
+        {isLoading ? <Loading /> : users.map(user => (
           <UserCard user={user} key={user.username} />
         ))}
       </>
