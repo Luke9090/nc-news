@@ -1,6 +1,6 @@
 .articleCard {
   display: grid;
-  grid-template-columns: auto 1fr 1fr 1fr;
+  grid-template-columns: auto 1.5fr 1fr 1fr;
   grid-template-rows: auto auto auto;
   grid-template-areas:
     'upvote title title title'

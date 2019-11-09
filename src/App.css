@@ -1,27 +1,3 @@
-/* body {
-  background-color: #E5EAFA;
-}
-
-#root {
-  background-color: #C6CCB2;
-}
-
-header {
-  background-color: #093824;
-}
-
-#normalLogin {
-  background-color: #093824;
-}
-
-nav {
-  background-color: #093824;
-}
-
-main {
-  background-color: #C6CCB2;
-} */
-
 body {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -79,33 +55,36 @@ main {
     grid-template-columns: auto;
     grid-template-rows: auto;
     grid-template-areas: 'root';
+    font-size: smaller;
   }
 
   #root {
     grid-area: root;
     display: grid;
-    min-width: 400px;
+    min-width: 315px;
     grid-template-columns: auto;
     grid-template-areas:
       'header'
       'nav'
       'login'
       'main';
-    grid-row-gap: 20px;
+    grid-row-gap: 10px;
   }
 
   nav {
     display: flex;
     flex-direction: row;
     font-size: 1.5em;
-    justify-self: center;
+    justify-self: flex-start;
     align-self: center;
     padding-left: 0;
+    flex-wrap: wrap;
   }
 
   nav > a {
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 5px;
   }
 
   #loginLink {
@@ -116,6 +95,7 @@ main {
     justify-self: center;
     align-self: center;
     padding-left: 0;
+    font-size: smaller;
   }
 
   #normalLogin {

@@ -3,13 +3,30 @@
   grid-template-columns: 6em 1fr 1fr 1fr;
   grid-template-rows: minmax(2em, auto) minmax(2em, auto) minmax(1.7em, auto);
   grid-template-areas:
-    'avatar username name .'
-    'avatar articles comments .'
-    'avatar aScore cScore tScore';
+  'avatar username name .'
+  'avatar articles aScore tScore'
+  'avatar comments cScore tScore';
   column-gap: 1em;
   margin-bottom: 1em;
   align-items: center;
   padding-left: 0.5em;
+}
+
+@media (max-width: 500px) {
+  .userCard {
+    display: grid;
+    grid-template-columns: 3em auto 1fr 1fr;
+    grid-template-rows: 3em minmax(2em, auto) minmax(2em, auto) minmax(2em, auto);
+    grid-template-areas:
+      '. avatar username name'
+      'articles articles aScore aScore'
+      'comments comments cScore cScore'
+      '. . tScore tScore';
+    column-gap: 1em;
+    margin-bottom: 1em;
+    align-items: center;
+    padding-left: 0.5em;
+  }
 }
 
 .userCard * {
