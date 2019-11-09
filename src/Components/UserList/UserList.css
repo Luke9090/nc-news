@@ -15,13 +15,14 @@
 @media (max-width: 500px) {
   .userCard {
     display: grid;
-    grid-template-columns: 3em auto 1fr 1fr;
-    grid-template-rows: 3em minmax(2em, auto) minmax(2em, auto) minmax(2em, auto);
+    grid-template-columns: minmax(6em,auto) 1fr 1fr;
+    grid-template-rows: 3em 3em minmax(2em, auto) minmax(2em, auto) minmax(2em, auto);
     grid-template-areas:
-      '. avatar username name'
-      'articles articles aScore aScore'
-      'comments comments cScore cScore'
-      '. . tScore tScore';
+      'avatar username username'
+      'avatar name name'
+      'articles aScore aScore'
+      'comments cScore cScore'
+      '. tScore tScore';
     column-gap: 1em;
     margin-bottom: 1em;
     align-items: center;
