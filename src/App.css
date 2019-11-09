@@ -144,20 +144,18 @@ h1:hover {
 }
 
 #sortControls {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  grid-template-areas: '. sort order';
+  display: flex;
   padding-bottom: 1em;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #sortLabel {
-  grid-area: sort;
   padding: 5px;
 }
 
 #orderLabel {
   padding: 5px;
-  grid-area: order;
 }
 
 .vote {
